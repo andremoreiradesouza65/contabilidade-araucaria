@@ -10,31 +10,52 @@ body {
 /* Cabeçalho */
 header {
     display: flex;
+    justify-content: space-between; /* Alinha logo e título na horizontal */
     align-items: center;
     padding: 10px;
-    background-color: #000000; /* Fundo preto */
-    color: white; /* Cor do texto no cabeçalho */
+    color: white;
+    background: linear-gradient(270deg, #001A33, #003366, #001A33); /* Azul mais escuro */
+    background-size: 400% 400%; /* Para suavizar as transições */
+    animation: wave 10s ease infinite; /* Movimento contínuo e mais suave */
+    width: 100%;
+    flex-wrap: wrap; /* Permite que os itens se movam para baixo se necessário */
+}
+
+/* Animação suave para efeito de onda contínua */
+@keyframes wave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Logo no canto esquerdo */
 .logo {
-    flex-shrink: 0;
-    margin-right: auto; /* Move os outros itens para a direita */
+    flex-shrink: 0; /* Impede que a logo encolha */
+    margin-right: 1rem; /* Espaçamento entre logo e título */
+    width: auto;
+    max-width: 150px; /* Ajuste para evitar que o logo fique muito pequeno */
+    height: auto;
 }
 
 .logo img {
-    height: 70px; /* Logo um pouco maior */
-    max-height: 70px; /* Limita a altura máxima */
+    height: auto;
+    max-height: 70px; /* Limita a altura do logo */
+    width: auto;
 }
 
 /* Estilo para o título */
 h1 {
-    text-align: center;
-    flex-grow: 1; /* Centraliza o título ocupando o espaço necessário */
     margin: 0;
     font-size: 2rem;
     letter-spacing: 1.5px;
-    color: white; /* Cor do texto do título */
+    color: white;
+    flex-grow: 1; /* Faz com que o título ocupe o restante do espaço */
+    white-space: nowrap; /* Evita que o título quebre a linha */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    flex-shrink: 1; /* Permite que o título encolha quando necessário */
+    padding-left: 10px; /* Garante que o título não fique colado no logo */
 }
 
 /* Navegação */
@@ -58,7 +79,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #555; /* Efeito hover com cinza escuro */
+    background-color: #555;
     border-radius: 5px;
 }
 
@@ -106,32 +127,16 @@ form input:focus, form textarea:focus {
 button {
     padding: 0.75rem 1rem;
     background-color: #333;
-    color
-}
-
-/* Animação de onda contínua */
-@keyframes wave {
-    0% {
-        background-position: 0%;
-    }
-    100% {
-        background-position: 200%;
-    }
-}
-
-/* Estilo para botões com degradê animado */
-button {
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    font-weight: bold;
+    color: white;
     border: none;
     border-radius: 5px;
-    color: white;
-    background: linear-gradient(90deg, #2c3e50, #4ca1af, #2c3e50); /* Degradê mais escuro */
-    background-size: 200% 200%; /* Ampliação do fundo para criar o efeito */
-    animation: wave 3s linear infinite; /* Animação de movimento */
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s;
+    background: linear-gradient(90deg, #2c3e50, #4ca1af, #2c3e50);
+    background-size: 200% 200%;
+    animation: wave 3s linear infinite;
 }
 
 /* Efeito hover */
@@ -142,11 +147,42 @@ button:hover {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #000000; /* Cor de fundo opcional */
-    color: #ffffff; /* Cor do texto opcional */
-    font-size: 14px; /* Tamanho do texto opcional */
-    position: relative; /* Para garantir a posição flexível */
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 14px;
+    position: relative;
     bottom: 0;
     width: 100%;
-    box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional para destaque */
+    box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* Ajustes para telas menores */
+@media screen and (max-width: 768px) {
+    /* Logo */
+    .logo {
+        max-width: 120px; /* Ajusta o logo em telas menores */
+    }
+
+    .logo img {
+        max-height: 50px; /* Reduz a altura do logo */
+    }
+
+    /* Cabeçalho */
+    header {
+        flex-direction: column; /* Alinha logo e título em coluna em telas menores */
+        align-items: center;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Reduz o tamanho do título */
+        text-align: center; /* Centraliza o título */
+        padding-left: 0; /* Remove o padding extra */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul 
