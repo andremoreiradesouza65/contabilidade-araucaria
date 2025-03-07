@@ -14,7 +14,7 @@ header {
     align-items: center;
     padding: 10px;
     color: white;
-    background: linear-gradient(270deg, #001A33, #003366, #001A33); /* Azul mais escuro */
+    background: linear-gradient(270deg, #003668, #001f3d, #003f7a); /* Azul mais escuro */
     background-size: 400% 400%; /* Para suavizar as transições */
     animation: wave 10s ease infinite; /* Movimento contínuo e mais suave */
     width: 100%;
