@@ -1,52 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contabilidade Araucária</title>
+    <title>Araucária Contabilidade</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo1-Photoroom.png" alt="Logo da Contabilidade Araucária">
-        </div>
-        <h1>Contabilidade Araucária</h1>
-        <nav>
-    </header>
-    
-    <main>
-        <section id="servicos">
-            <h2>Serviços</h2>
-            <p>Na Araucária Contabilidade, oferecemos soluções personalizadas e completas para atender às suas necessidades contábeis. Com um time de profissionais experientes e comprometidos, nosso objetivo é simplificar sua gestão financeira e impulsionar o crescimento do seu negócio. Confira nossos principais serviços:</p>
 
-            <ul>
-                <li><strong>Assessoria Contábil:</strong> Gerenciamos todas as suas obrigações contábeis, garantindo precisão e conformidade com a legislação vigente.</li>
-                <li><strong>Planejamento Tributário:</strong> Identificamos estratégias eficazes para reduzir a carga tributária e otimizar a saúde financeira da sua empresa.</li>
-                <li><strong>Departamento Pessoal:</strong> Cuidamos de todas as rotinas relacionadas à folha de pagamento, admissões, rescisões e obrigações trabalhistas.</li>
-                <li><strong>Regularização de Empresas:</strong> Oferecemos suporte completo na abertura, alteração e encerramento de empresas, garantindo que tudo esteja conforme as normas legais.</li>
-                <li><strong>Escrituração Fiscal:</strong> Realizamos a escrituração de seus documentos fiscais com total precisão, alinhados às normas tributárias.</li>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="LOGO3-removebg-preview.png" alt="Logo" id="logo">
+            </div>
+            <ul class="menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li>
             </ul>
-            
-            <p>Na Araucária Contabilidade, nossa prioridade é proporcionar tranquilidade e segurança, permitindo que você foque no que realmente importa: o sucesso do seu negócio.</p>
-            
-        </section>
-        <section id="sobre">
-            <h2>Sobre Nós</h2>
-            <p>Na Araucária Contabilidade, construímos mais do que soluções contábeis; criamos parcerias baseadas em confiança, respeito e excelência. Situados no coração de Guarapuava, somos uma equipe de profissionais apaixonados pela arte de transformar desafios financeiros em oportunidades para nossos clientes. Com 12 anos de experiência no mercado, unimos conhecimento técnico com um atendimento personalizado, adaptando nossas soluções às necessidades únicas de cada cliente. Nosso compromisso vai além dos números: estamos aqui para descomplicar a contabilidade e ajudar empresas e empreendedores a alcançarem todo o seu potencial. Acreditamos que cada cliente tem uma história para contar e que nosso trabalho é apoiar o crescimento sustentável de seus negócios, sendo um alicerce de confiança em todas as etapas dessa jornada e respeitando a individualidade de cada cliente. Seja qual for o seu sonho ou objetivo, estamos prontos para caminhar ao seu lado, oferecendo transparência, segurança e uma parceria de sucesso. Na Araucária Contabilidade, nosso propósito é fazer a diferença – nos seus negócios e trazer comodidade para sua vida.</p>
-        </section>
-       
-            <!-- Adicionada a seção 'Entre em contato conosco' -->
-            <h2>Entre em contato conosco</h2>
-            <p>fale conosco diretamente pelo WhatsApp clicando no botão abaixo:</p>
-            <a href="https://wa.me/+554233042898" target="_blank">
-                <button>Enviar mensagem via WhatsApp</button>
-            </a>
-        </section>
-    </main>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Transformamos sua gestão contábil em resultados excepcionais</h2>
+            <p>Contabilidade de excelência para o crescimento da sua empresa.</p>
+            <a href="tel:+5511123456789" class="cta-btn">Fale Conosco</a> <!-- Click to Call -->
+        </div>
+    </section>
+
+    <!-- Sobre Nós Section -->
+    <section id="sobre" class="sobre">
+        <h2>Sobre Nós</h2>
+        <p>Na Araucária Contabilidade, construímos mais do que soluções contábeis; criamos parcerias baseadas em confiança, respeito e excelência. Situados no coração de Guarapuava, somos uma equipe de profissionais apaixonados pela arte de transformar desafios financeiros em oportunidades para nossos clientes. Com 12 anos de experiência no mercado, unimos conhecimento técnico com um atendimento personalizado, adaptando nossas soluções às necessidades únicas de cada cliente. Nosso compromisso vai além dos números: estamos aqui para descomplicar a contabilidade e ajudar empresas e empreendedores a alcançarem todo o seu potencial. Acreditamos que cada cliente tem uma história para contar e que nosso trabalho é apoiar o crescimento sustentável de seus negócios, sendo um alicerce de confiança em todas as etapas dessa jornada e respeitando a individualidade de cada cliente. Seja qual for o seu sonho ou objetivo, estamos prontos para caminhar ao seu lado, oferecendo transparência, segurança e uma parceria de sucesso. Na Araucária Contabilidade, nosso propósito é fazer a diferença – nos seus negócios e trazer comodidade para sua vida.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Serviços</h2>
+        <div class="service-items">
+            <div class="service-item">
+                <h3>Assessoria Contábil</h3>
+                <p>Gerenciamos todas as suas obrigações contábeis, garantindo precisão e conformidade com a legislação vigente.</p>
+            </div>
+            <div class="service-item">
+                <h3>Planejamento Tributário</h3>
+                <p>Identificamos estratégias eficazes para reduzir a carga tributária e otimizar a saúde financeira da sua empresa.</p>
+            </div>
+            <div class="service-item">
+                <h3>Departamento Pessoal</h3>
+                <p>Cuidamos de todas as rotinas relacionadas à folha de pagamento, admissões, rescisões e obrigações trabalhistas.</p>
+            </div>
+            <div class="service-item">
+                <h3>Regularização de Empresas</h3>
+                <p>Oferecemos suporte completo na abertura, alteração e encerramento de empresas, garantindo que tudo esteja conforme as normas legais.</p>
+            </div>
+            <div class="service-item">
+                <h3>Escrituração Fiscal</h3>
+                <p>Realizamos a escrituração de seus documentos fiscais com total precisão, alinhados às normas tributárias.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contato</h2>
+        <form id="contact-form">
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" required placeholder="Escreva sua mensagem"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div class="contact-info">
+            <div class="info-item">
+                <h4>Telefone:</h4>
+                <p>(42) 3304-2898</p>
+            </div>
+            <div class="info-item">
+                <h4>Redes Sociais:</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/araucariacontabilidad/?locale=pt_BR" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/contabilidadearaucaria?igsh=MTZoeHp0NW0yNWYzaw%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2012 Contabilidade Araucária.</p>
+        <p>&copy; 2025 Araucária Contabilidade. Todos os direitos reservados.</p>
     </footer>
-    <script src="script.js"></script>
+
 </body>
 </html>

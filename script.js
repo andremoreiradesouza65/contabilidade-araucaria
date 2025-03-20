@@ -1,14 +1,10 @@
-document.getElementById('contato-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Obrigado por entrar em contato! Em breve retornaremos.');
-});
-
-// Seleciona todos os botões
-const buttons = document.querySelectorAll("button");
-
-// Função para inicializar gradientes animados
-buttons.forEach((button) => {
-    button.style.background = "linear-gradient(90deg, #2c3e50, #4ca1af, #2c3e50)";
-    button.style.backgroundSize = "200% 200%";
-    button.style.animation = "wave 3s linear infinite";
+document.querySelector("#contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const email = document.querySelector("#email").value;
+    const message = document.querySelector("#message").value;
+    if (email && message) {
+        alert("Mensagem enviada com sucesso!");
+    } else {
+        alert("Preencha todos os campos.");
+    }
 });
