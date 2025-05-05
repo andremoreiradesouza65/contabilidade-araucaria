@@ -6,6 +6,22 @@
     <title>Araucária Contabilidade</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Meta SEO -->
+    <meta name="description" content="Contabilidade personalizada em Guarapuava. Soluções completas para empresas.">
+    <meta property="og:title" content="Araucária Contabilidade">
+    <meta property="og:description" content="Transformamos sua gestão contábil em resultados excepcionais.">
+    <meta property="og:image" content="LOGO3-removebg-preview.png">
+
+    <!-- Animações e SEO Boost -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </head>
 <body>
 
@@ -26,105 +42,123 @@
 
     <!-- Home Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up">
             <h2>Transformamos sua gestão contábil em resultados excepcionais</h2>
             <p>Contabilidade de excelência para o crescimento da sua empresa.</p>
-            <a href="https://wa.me/554233042898" class="cta-btn">Fale Conosco</a> <!-- Click to Call -->
+            <a href="https://wa.me/554233042898" class="cta-btn">Fale Conosco</a>
         </div>
     </section>
 
     <!-- Sobre Nós Section -->
-    <section id="sobre" class="sobre">
+    <section id="sobre" class="sobre" data-aos="fade-right">
         <h2>Sobre Nós</h2>
-        <p>Na Araucária Contabilidade, construímos mais do que soluções contábeis; criamos parcerias baseadas em confiança, respeito e excelência. Situados no coração de Guarapuava, somos uma equipe de profissionais apaixonados pela arte de transformar desafios financeiros em oportunidades para nossos clientes. Com 12 anos de experiência no mercado, unimos conhecimento técnico com um atendimento personalizado, adaptando nossas soluções às necessidades únicas de cada cliente. Nosso compromisso vai além dos números: estamos aqui para descomplicar a contabilidade e ajudar empresas e empreendedores a alcançarem todo o seu potencial. Acreditamos que cada cliente tem uma história para contar e que nosso trabalho é apoiar o crescimento sustentável de seus negócios, sendo um alicerce de confiança em todas as etapas dessa jornada e respeitando a individualidade de cada cliente. Seja qual for o seu sonho ou objetivo, estamos prontos para caminhar ao seu lado, oferecendo transparência, segurança e uma parceria de sucesso. Na Araucária Contabilidade, nosso propósito é fazer a diferença – nos seus negócios e trazer comodidade para sua vida.</p>
+        <p>Na Araucária Contabilidade, construímos mais do que soluções contábeis; criamos parcerias baseadas em confiança, respeito e excelência. Situados no coração de Guarapuava, somos uma equipe de profissionais apaixonados pela arte de transformar desafios financeiros em oportunidades para nossos clientes. Com 12 anos de experiência no mercado, unimos conhecimento técnico com um atendimento personalizado, adaptando nossas soluções às necessidades únicas de cada cliente...</p>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="services" data-aos="fade-left">
         <h2>Serviços</h2>
         <div class="service-items">
             <div class="service-item">
-                <h3>Assessoria Contábil</h3>
-                <p>Gerenciamos todas as suas obrigações contábeis, garantindo precisão e conformidade com a legislação vigente.</p>
+                <h3><i class="fas fa-chart-line"></i> Assessoria Contábil</h3>
+                <p>Gerenciamos todas as suas obrigações contábeis...</p>
             </div>
             <div class="service-item">
-                <h3>Planejamento Tributário</h3>
-                <p>Identificamos estratégias eficazes para reduzir a carga tributária e otimizar a saúde financeira da sua empresa.</p>
+                <h3><i class="fas fa-calculator"></i> Planejamento Tributário</h3>
+                <p>Identificamos estratégias eficazes...</p>
             </div>
             <div class="service-item">
-                <h3>Departamento Pessoal</h3>
-                <p>Cuidamos de todas as rotinas relacionadas à folha de pagamento, admissões, rescisões e obrigações trabalhistas.</p>
+                <h3><i class="fas fa-user-tie"></i> Departamento Pessoal</h3>
+                <p>Cuidamos de todas as rotinas...</p>
             </div>
             <div class="service-item">
-                <h3>Regularização de Empresas</h3>
-                <p>Oferecemos suporte completo na abertura, alteração e encerramento de empresas, garantindo que tudo esteja conforme as normas legais.</p>
+                <h3><i class="fas fa-building"></i> Regularização de Empresas</h3>
+                <p>Oferecemos suporte completo...</p>
             </div>
             <div class="service-item">
-                <h3>Escrituração Fiscal</h3>
-                <p>Realizamos a escrituração de seus documentos fiscais com total precisão, alinhados às normas tributárias.</p>
+                <h3><i class="fas fa-file-invoice"></i> Escrituração Fiscal</h3>
+                <p>Realizamos a escrituração de seus documentos fiscais...</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <div class="container">
+    <div class="container" id="contact" data-aos="fade-up">
         <h1>Entre em contato via E-mail</h1>
-        <form target="_blank" action="https://formsubmit.co/araucariasite01@gmail.com" method="POST">
+        <form id="contact-form" target="_blank" action="https://formsubmit.co/araucariasite01@gmail.com" method="POST">
             <input type="text" name="name" placeholder="Nome Completo" required>
-            <input type="email" name="email" placeholder="E-mail" required>
-            <textarea name="message" placeholder="Sua Mensagem" rows="5" required></textarea>
+            <input type="email" name="email" id="email" placeholder="E-mail" required>
+            <textarea name="message" id="message" placeholder="Sua Mensagem" rows="5" required></textarea>
             <button type="submit">Enviar Mensagem</button>
         </form>
     </div>
-    
-        <div class="contact-info">
-            <div class="info-item">
-                <h4>Telefone:</h4>
-                <p>(42) 3304-2898</p>
+
+   
+
+    <!-- Notícias Recentes Section -->
+    <section id="noticias" class="noticias" style="text-align: center; background-color: #003a86; padding: 20px;" data-aos="fade-up">
+        <h2 style="color: white;">Notícias Recentes</h2>
+        <div class="noticias-container">
+            <div class="noticia-item">
+                <img src="consignado clt.png" alt="Imagem da notícia">
+                <h3>🌟 Crédito do Trabalhador 🌟</h3>
+                <p>O programa Crédito do Trabalhador liberou mais de R$ 3,1 bilhões...</p>
             </div>
-            <div class="info-item">
-                <h4>Redes Sociais:</h4>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/araucariacontabilidad/?locale=pt_BR" target="_blank">Facebook</a>
-                    <a href="https://www.instagram.com/contabilidadearaucaria?igsh=MTZoeHp0NW0yNWYzaw%3D%3D&utm_source=qr" target="_blank">Instagram</a>
-                </div>
+            <div class="noticia-item">
+                <img src="IR.png" alt="Imagem da notícia">
+                <h3>📊 Acompanhe seu IR 2025! 🕵️</h3>
+                <p>Após enviar sua declaração, é essencial acompanhar o status...</p>
+            </div>
+            <div class="noticia-item">
+                <img src="post 12.png" alt="Imagem da notícia">
+                <h3>📊 Impactos da Reforma Tributária! 🕵️</h3>
+                <p>O Simples Nacional será impactado indiretamente pela reforma tributária...</p>
             </div>
         </div>
     </section>
 
-  <!-- Notícias Recentes Section -->
-<section id="noticias" class="noticias" style="text-align: center; background-color: #003a86; padding: 20px;">
-    <h2 style="color: white;">Notícias Recentes</h2>
-    <div class="noticias-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-        <div class="noticia-item" style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px rgb(250, 250, 250); max-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <img src="consignado clt.png" alt="Imagem da notícia" style="width: 100%; height: auto; border-radius: 8px;">
-            <h3>🌟 Crédito do Trabalhador 🌟</h3>
-            <p>Você sabia que o programa Crédito do Trabalhador já liberou mais de R$ 3,1 bilhões em empréstimos consignados para trabalhadores CLT? Isso mesmo! 💰 Com parcelas que são descontadas diretamente da folha de pagamento.</p>
-            
+    <div class="contact-info" data-aos="fade-in" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 20px;">
+        <div class="info-item" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <h4>Telefone:</h4>
+            <p>(42) 3304-2898</p>
         </div>
-        <div class="noticia-item" style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px rgb(255, 255, 255); max-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <img src="IR.png" alt="Imagem da notícia" style="width: 100%; height: auto; border-radius: 8px;">
-            <h3>📊 Acompanhe seu IR 2025! 📅</h3>
-            <p>Você sabia que, após enviar sua declaração do Imposto de Renda, é fundamental acompanhar o status dela? A Receita Federal pode identificar pendências e, por isso, é essencial garantir que tudo esteja correto até a aprovação final. 📝✅</p>
-            
+        <div class="info-item" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <h4>Redes Sociais:</h4>
+            <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+                <a href="https://www.facebook.com/araucariacontabilidad/?locale=pt_BR" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/contabilidadearaucaria" target="_blank">Instagram</a>
+            </div>
         </div>
-
-          <div class="noticia-item" style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px rgb(255, 255, 255); max-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <img src="post 12.png" alt="Imagem da notícia" style="width: 100%; height: auto; border-radius: 8px;">
-            <h3>📊 Impactos da reforma Tributária! 📅</h3>
-            <p>Apesar de mantido, o Simples Nacional será impactado indiretamente pela reforma tributária, exigindo que as empresas se adaptem para manter a competitividade no novo cenário fiscal. 📝✅</p>
-            
-        </div>
-      
     </div>
-</section>
-
-
+    
 
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 Araucária Contabilidade. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Botpress Chatbot -->
+    <script src="https://webhook.botpress.cloud/89578b12-2e06-4a8c-9b96-5681a6fb9f71" data-bot-id="SEU_BOT_ID" data-host="https://cdn.botpress.cloud/webchat/v1" async></script>
+
+    <!-- Rolagem suave -->
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+          });
+        });
+      });
+    </script>
+
+    <!-- AOS Init -->
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true
+      });
+    </script>
 
 </body>
 </html>
