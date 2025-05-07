@@ -7,4 +7,5 @@ document.querySelector("#contact-form").addEventListener("submit", function(e) {
     } else {
         alert("Preencha todos os campos.");
     }
+    
 });

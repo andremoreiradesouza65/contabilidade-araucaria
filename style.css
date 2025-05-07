@@ -47,7 +47,7 @@ header ul.menu {
 }
 
 header ul.menu li a {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: 600;
     padding: 8px 12px;
@@ -116,7 +116,7 @@ section {
 section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #003366;
+    color: #000000;
 }
 
 section p {
@@ -308,4 +308,25 @@ footer {
 [data-aos].aos-animate {
     opacity: 1;
     transform: none;
+}
+
+.swiper-slide.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 80vh;
+    padding: 160px 20px 80px;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
 }

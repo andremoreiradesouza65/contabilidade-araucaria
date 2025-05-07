@@ -22,6 +22,9 @@
     <!-- Animações e SEO Boost -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
 </head>
 <body>
 
@@ -41,13 +44,28 @@
     </header>
 
     <!-- Home Section -->
-    <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h2>Transformamos sua gestão contábil em resultados excepcionais</h2>
-            <p>Contabilidade de excelência para o crescimento da sua empresa.</p>
-            <a href="https://wa.me/554233042898" class="cta-btn">Fale Conosco</a>
+    <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide hero" style="background-image: url('araucaria.jpg');">
+            <div class="hero-content">
+              <h2>Transformamos sua gestão contábil<br>em resultados excepcionais</h2>
+              <p>Contabilidade de excelência para o crescimento da sua empresa.</p>
+              <a href="https://wa.me/554233042898" class="cta-btn">Fale Conosco</a>
+            </div>
+          </div>
+      
+          <!-- Slide 2 -->
+          <div class="swiper-slide hero" style="background-image: url('blue-hd-1920-x-1080-background-diq52nddspjsrvxp.jpg');">
+            <div class="hero-content">
+              <h2>Consultoria especializada<br>em contabilidade empresarial</h2>
+              <p>Conte com nossa equipe para manter sua empresa em conformidade e prosperando.</p>
+              <a href="https://wa.me/554233042898" class="cta-btn">Saiba Mais</a>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      
 
     <!-- Sobre Nós Section -->
     <section id="sobre" class="sobre" data-aos="fade-right">
@@ -152,13 +170,32 @@
       });
     </script>
 
-    <!-- AOS Init -->
-    <script>
-      AOS.init({
-        duration: 1000,
-        once: true
-      });
-    </script>
-
+ <!-- AOS Init -->
+<script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  
+  <script>
+    const swiper = new Swiper('.hero-swiper', {
+      loop: true,
+      autoplay: {
+        delay: 4000,  // Tempo entre as imagens (4 segundos)
+        disableOnInteraction: false,
+      },
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true,
+      },
+      speed: 1500,  // Aumento do tempo de transição para 1,5 segundos, para um esmaecimento mais suave
+    });
+  </script>
+  
+  
 </body>
 </html>
