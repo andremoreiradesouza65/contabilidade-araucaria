@@ -28,7 +28,7 @@ const noticias = [
   },
   {
     "imagem": "noticia 777.png",
-    "titulo":  erros fatais",
+    "titulo":  "erros fatais",
     "descricao": " Expandir um negócio no Brasil pode ser um grande desafio! Para garantir o sucesso da sua expansão, é fundamental evitar os 7 erros fatais que podem afundar sua empresa. "
   }
 ];
