@@ -27,9 +27,9 @@ const noticias = [
     "descricao": "O Simples Nacional será impactado indiretamente pela reforma tributária..."
   },
   {
-    "imagem": "leao.png",
-    "titulo": "📊 Prazo IR 🕵️",
-    "descricao": "O prazo para enviar sua declaração de Imposto de Renda 2025 está se aproximando..."
+    "imagem": "noticia 777.png",
+    "titulo":  erros fatais",
+    "descricao": " Expandir um negócio no Brasil pode ser um grande desafio! Para garantir o sucesso da sua expansão, é fundamental evitar os 7 erros fatais que podem afundar sua empresa. "
   }
 ];
 
