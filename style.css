@@ -235,29 +235,46 @@ form button:hover {
 
 /* Notícias */
 .noticias-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .noticia-item {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    max-width: 300px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.noticia-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .noticia-item img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
+
+.noticia-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 10px 0 5px;
+  color: #003a86;
+}
+
+.noticia-item p {
+  padding: 0 15px 15px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
 
 /* Footer */
 footer {
@@ -329,4 +346,44 @@ footer {
     border-radius: 10px;
     text-align: center;
     margin: 0 auto;
+}
+
+/* Botão hamburguer (mobile) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Versão mobile do menu */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    header ul.menu {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    header ul.menu.show {
+        max-height: 500px; /* suficiente para mostrar todos os itens */
+    }
+
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

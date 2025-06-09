@@ -37,22 +37,41 @@
 </script>
 
 </head>
+
+<script>
+function toggleMenu() {
+  const menu = document.querySelector('header ul.menu');
+  menu.classList.toggle('show');
+}
+</script>
+
 <body>
 
     <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="LOGO3-removebg-preview.png" alt="Logo" id="logo">
-            </div>
-            <ul class="menu">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+   <header>
+  <nav>
+    <div class="logo">
+      <img src="LOGO3-removebg-preview.png" alt="Logo Araucária">
+    </div>
+
+    <!-- Botão hambúrguer para mobile -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Menu de navegação -->
+    <ul class="menu">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#noticias">Notícias</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+
 
     <!-- Home Section -->
     <div class="swiper hero-swiper">
@@ -67,13 +86,29 @@
           </div>
       
           <!-- Slide 2 -->
-          <div class="swiper-slide hero" style="background-image: url('blue-hd-1920-x-1080-background-diq52nddspjsrvxp.jpg');">
+          <div class="swiper-slide hero" style="background-image: url('sala.jpeg');">
             <div class="hero-content">
               <h2>Consultoria especializada<br>em contabilidade empresarial</h2>
               <p>Conte com nossa equipe para manter sua empresa em conformidade e prosperando.</p>
               <a href="https://wa.me/554233042898" class="cta-btn">Saiba Mais</a>
             </div>
           </div>
+
+           <div class="swiper-slide hero" style="background-image: url('44.jpg');">
+            <div class="hero-content">
+              <h2>Transformamos sua gestão contábil<br>em resultados excepcionais</h2>
+              <p>Contabilidade de excelência para o crescimento da sua empresa.</p>
+              <a href="https://wa.me/554233042898" class="cta-btn">Fale Conosco</a>
+            </div>
+          </div>
+           
+          <div class="swiper-slide hero" style="background-image: url('principal.jpeg');">
+            <div class="hero-content">
+              <h2>Transformamos sua gestão contábil<br>em resultados excepcionais</h2>
+              <p>Contabilidade de excelência para o crescimento da sua empresa.</p>
+              <a href="https://wa.me/554233042898" class="cta-btn">Fale Conosco</a>
+            </div>
+
         </div>
       </div>
       
@@ -114,7 +149,7 @@
     <!-- Contact Section -->
     <div class="container" id="contact" data-aos="fade-up">
         <h1>Entre em contato via E-mail</h1>
-        <form id="contact-form" target="_blank" action="https://formsubmit.co/araucariasite01@gmail.com" method="POST">
+        <form id="contact-form" target="_blank" action="https://formsubmit.co/ andremoreiradesouza557@gmail.com" method="POST">
             <input type="text" name="name" placeholder="Nome Completo" required>
             <input type="email" name="email" id="email" placeholder="E-mail" required>
             <textarea name="message" id="message" placeholder="Sua Mensagem" rows="5" required></textarea>
@@ -125,46 +160,13 @@
    
 
     <!-- Notícias Recentes Section -->
-    <section id="noticias" class="noticias" style="text-align: center; background-color: #003a86; padding: 20px;" data-aos="fade-up">
-        <h2 style="color: white;">Notícias Recentes</h2>
-        <div class="noticias-container">
-            <div class="noticia-item">
-                <img src="consignado clt.png" alt="Imagem da notícia">
-                <h3>🌟 Crédito do Trabalhador 🌟</h3>
-                <p>O programa Crédito do Trabalhador liberou mais de R$ 3,1 bilhões...</p>
-            </div>
-            <div class="noticia-item">
-                <img src="IR.png" alt="Imagem da notícia">
-                <h3>📊 Acompanhe seu IR 2025! 🕵️</h3>
-                <p>Após enviar sua declaração, é essencial acompanhar o status...</p>
-            </div>
-            <div class="noticia-item">
-                <img src="post 12.png" alt="Imagem da notícia">
-                <h3>📊 Impactos da Reforma Tributária! 🕵️</h3>
-                <p>O Simples Nacional será impactado indiretamente pela reforma tributária...</p>
-            </div>
-            <div class="noticia-item">
-                <img src="leao.png" alt="Imagem da notícia">
-                <h3>📊 Prazo IR 🕵️</h3>
-                <p>O prazo para enviar sua declaração de Imposto de Renda 2025 está se aproximando...</p>
-            </div>
-        </div>
-    </section>
+   <section id="noticias" class="noticias" style="background-color: #003a86; padding: 40px 20px;" data-aos="fade-up">
+  <h2 style="color: white; margin-bottom: 30px;">Notícias Recentes</h2>
+  <div class="noticias-container">
+    <!-- Notícias vão ser inseridas aqui via JS -->
+  </div>
+</section>
 
-    <div class="contact-info" data-aos="fade-in" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 20px;">
-        <div class="info-item" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-            <h4>Telefone:</h4>
-            <p>(42) 3304-2898</p>
-        </div>
-        <div class="info-item" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-            <h4>Redes Sociais:</h4>
-            <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
-                <a href="https://www.facebook.com/araucariacontabilidad/?locale=pt_BR" target="_blank">Facebook</a>
-                <a href="https://www.instagram.com/contabilidadearaucaria" target="_blank">Instagram</a>
-            </div>
-        </div>
-    </div>
-    
 
     <!-- Footer Section -->
     <footer>
