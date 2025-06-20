@@ -25,6 +25,8 @@
 /* Habilita rolagem suave ao clicar em links de âncora */
 html {
     scroll-behavior: smooth;
+    /* Correção: Garante que não haja rolagem horizontal excessiva em alguns cenários de overflow */
+    overflow-x: hidden;
 }
 
 body {
@@ -34,13 +36,16 @@ body {
     background-color: var(--background-light); /* Cor de fundo padrão da página */
     -webkit-font-smoothing: antialiased; /* Suavização de fontes para WebKit (melhora a aparência) */
     -moz-osx-font-smoothing: grayscale; /* Suavização de fontes para Firefox (melhora a aparência) */
+    /* Correção: Para evitar rolagem horizontal geral causada por elementos que "escapam" */
+    overflow-x: hidden;
 }
 
 /* Estilo para o contêiner principal que centraliza o conteúdo */
 .container {
     max-width: 1200px; /* Largura máxima do conteúdo */
     margin: 0 auto; /* Centraliza o contêiner na página */
-    padding: 0 25px; /* Padding nas laterais para não colar nas bordas da tela */
+    /* Ajuste: Garante padding lateral suficiente, mas flexível, para telas menores */
+    padding: 0 20px;
 }
 
 /* Estilo padrão para links */
@@ -136,28 +141,52 @@ h2 {
 }
 
 .topbar .container {
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha o contato e os ícones sociais lado a lado */
     display: flex; /* Usa Flexbox para alinhar itens */
     justify-content: space-between; /* Espaça itens nas extremidades */
     align-items: center;
     flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    min-width: 0; /* Garante que o contêiner flexível possa encolher */
+    overflow: hidden; /* Impede que o conteúdo interno empurre o container para fora */
+}
+
+.topbar .contact-info {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os spans de contato quebrem a linha */
+    align-items: center;
+    gap: 10px 25px; /* Espaçamento entre os itens, com quebra de linha */
+    min-width: 0; /* Permite que o contêiner encolha */
+    flex-shrink: 1; /* Permite que o bloco encolha */
 }
 
 .topbar .contact-info span {
-    margin-right: 25px;
-    display: inline-block; /* Garante que o espaçamento funcione */
+    display: inline-flex; /* Alterado para inline-flex para alinhar ícone e texto */
+    align-items: center;
+    white-space: nowrap; /* Tenta manter o texto em uma linha */
+    overflow: hidden; /* Esconde o conteúdo que excede a largura */
+    text-overflow: ellipsis; /* Adiciona "..." ao texto cortado */
+    flex: 1 1 auto; /* Permite que ele cresça e encolha, com base no conteúdo */
+    min-width: 0; /* Permite o encolhimento */
 }
 
 .topbar .contact-info i {
     margin-right: 8px;
     color: var(--accent-color); /* Ícone em destaque com cor de acento */
+    flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+.topbar .social-icons {
+    display: flex;
+    flex-wrap: nowrap; /* Tenta manter os ícones em uma linha */
+    gap: 18px; /* Espaçamento entre os ícones */
+    min-width: 0;
+    flex-shrink: 0; /* Impede que o bloco de ícones encolha demais */
 }
 
 .topbar .social-icons a {
     color: var(--text-light);
-    margin-left: 18px;
     font-size: 1.1em;
     opacity: 0.9; /* Levemente transparente */
+    flex-shrink: 0; /* Impede que o ícone individual encolha */
 }
 
 .topbar .social-icons a:hover {
@@ -176,32 +205,39 @@ h2 {
 }
 
 .header .container {
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha o logo e o navbar lado a lado */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap; /* Tenta manter logo e navbar na mesma linha */
+    min-width: 0; /* Permite que o contêiner encolha */
 }
 
 .header .logo img {
     height: 100px; /* Altura fixa para o logo */
-    width: auto;
+    width: auto; /* Mantém a proporção da imagem */
+    max-width: 100%; /* Importantíssimo para que a imagem se ajuste ao espaço disponível */
+    flex-shrink: 0; /* Impede que o logo encolha desproporcionalmente */
 }
 
 .navbar {
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha os links de navegação e o botão de orçamento (desktop) */
     display: flex; /* Usa flexbox para o navbar, alinhando links e botão */
     align-items: center;
+    flex-grow: 1; /* Permite que a navbar ocupe o espaço restante */
+    justify-content: flex-end; /* Alinha o conteúdo da navbar à direita em desktop */
+    min-width: 0; /* Permite que a navbar encolha */
 }
 
 .navbar .nav-links {
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha os itens do menu horizontalmente */
     display: flex; /* Garante flexbox para os links de navegação */
     align-items: center;
     gap: 35px; /* Espaçamento entre os itens do menu */
+    flex-wrap: nowrap; /* Impede que os links quebrem a linha em desktop se houver espaço */
+    min-width: 0; /* Permite que a lista encolha */
 }
 
 .navbar .nav-links li {
     position: relative;
+    flex-shrink: 0; /* Impede que cada item de link individual encolha */
 }
 
 .navbar .nav-links li a:not(.btn-primary) { /* Aplica estilo a todos os links exceto botões */
@@ -210,6 +246,7 @@ h2 {
     padding: 8px 0;
     position: relative;
     font-size: 1.02em;
+    white-space: nowrap; /* Tenta manter o texto em uma linha */
 }
 
 /* Efeito de linha sob o link ao passar o mouse ou quando ativo */
@@ -236,6 +273,8 @@ h2 {
 /* Botão de Orçamento no Desktop */
 .external-btn.desktop-btn { /* Botão fora da lista de links principais */
     margin-left: 40px; /* Espaçamento à esquerda do botão */
+    white-space: nowrap;
+    flex-shrink: 0; /* Impede que o botão encolha em desktop */
 }
 
 /* Esconde o botão mobile por padrão (será exibido via media query) */
@@ -249,6 +288,8 @@ h2 {
     font-size: 1.8em;
     cursor: pointer;
     color: var(--primary-blue);
+    flex-shrink: 0; /* Impede que o hambúrguer encolha */
+    margin-left: 20px; /* Espaço para o hambúrguer no canto */
 }
 
 /* Dropdown Menu (Desktop) */
@@ -316,7 +357,6 @@ h2 {
     text-align: center;
     overflow: hidden;
     position: relative;
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha o conteúdo verticalmente no centro da seção */
     display: flex;
     align-items: center;
     min-height: 650px; /* Altura mínima para a seção */
@@ -324,19 +364,21 @@ h2 {
 }
 
 .hero .container {
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha o texto e a imagem lado a lado */
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: left; /* Alinhamento do texto à esquerda */
-    flex-wrap: wrap; /* Permite quebrar a linha em telas menores */
+    /* REMOVIDO: flex-wrap: wrap; aqui para manter sempre lado a lado em desktop/tablet */
     gap: 40px; /* Espaçamento entre os itens flex */
+    min-width: 0; /* Garante que o contêiner flexível possa encolher */
 }
 
 .hero-content {
     flex: 1;
     min-width: 400px; /* Largura mínima para o conteúdo */
     padding-right: 30px;
+    /* REMOVIDO: flex-basis: auto; */
+    max-width: 100%; /* Garante que não exceda o container */
 }
 
 .hero-content h1 {
@@ -345,24 +387,32 @@ h2 {
     line-height: 1.1;
     color: var(--text-light);
     text-shadow: 2px 2px 8px rgba(0,0,0,0.2); /* Sombra no texto para destaque */
+    word-break: break-word; 
+    overflow-wrap: break-word;
 }
 
 .hero-content p {
     font-size: 1.3em;
     margin-bottom: 40px;
     color: rgba(255,255,255,0.9);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .hero-buttons {
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha os botões lado a lado */
     display: flex;
     gap: 20px; /* Espaçamento entre os botões */
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Alinha à esquerda por padrão */
+    min-width: 0; /* Permite que o contêiner dos botões encolha */
 }
 
 .hero-image {
     flex: 1;
     min-width: 400px;
     text-align: center;
+    /* REMOVIDO: flex-basis: auto; */
+    max-width: 100%;
 }
 
 .hero-image img {
@@ -386,17 +436,19 @@ h2 {
 }
 
 .about .container {
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha imagem e texto lado a lado */
     display: flex;
     align-items: center;
     gap: 60px; /* Espaçamento entre a imagem e o texto */
-    flex-wrap: wrap; /* Permite empilhamento em telas menores */
+    /* REMOVIDO: flex-wrap: wrap; aqui para manter sempre lado a lado em desktop/tablet */
+    min-width: 0; /* Garante que o contêiner flexível possa encolher */
 }
 
 .about-image {
     flex: 1;
     min-width: 350px;
     text-align: center;
+    /* REMOVIDO: flex-basis: auto; */
+    max-width: 100%;
 }
 
 .about-image img {
@@ -409,6 +461,8 @@ h2 {
 .about-content {
     flex: 1.5; /* Ocupa mais espaço que a imagem */
     min-width: 450px;
+    /* REMOVIDO: flex-basis: auto; */
+    max-width: 100%;
 }
 
 .about-content h2 {
@@ -417,6 +471,8 @@ h2 {
     margin-bottom: 25px;
     position: relative;
     padding-bottom: 10px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Linha decorativa abaixo do título "Sobre Nós" */
@@ -435,6 +491,8 @@ h2 {
     margin-bottom: 15px;
     font-size: 1.05em;
     color: #555;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .about-content ul {
@@ -446,6 +504,8 @@ h2 {
     font-size: 1.05em;
     margin-bottom: 10px;
     color: #444;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .about-content ul li i {
@@ -464,10 +524,11 @@ h2 {
 }
 
 .services-grid {
-    /* UTILIZAÇÃO DE GRID: Usa Grid para o layout dos cards de serviço */
-    display: grid;
+    display: grid; /* Usa Grid para o layout dos cards de serviço */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas responsivas */
     gap: 30px; /* Espaçamento entre os cards */
+    overflow: hidden; /* Importante para garantir que o gap não "vaze" */
+    max-width: 100%; /* Garante que o grid não exceda o container */
 }
 
 .service-item {
@@ -496,11 +557,15 @@ h2 {
     font-size: 1.6em;
     margin-bottom: 15px;
     color: var(--secondary-blue);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .service-item p {
     font-size: 0.98em;
     color: #666;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* --- Testimonials Section (Depoimentos) --- */
@@ -543,23 +608,28 @@ h2 {
     margin-bottom: 25px;
     line-height: 1.5;
     color: rgba(255,255,255,0.95);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .testimonial-item h4 {
     font-size: 1.2em;
     color: var(--accent-color); /* Nome do cliente em destaque */
     margin-bottom: 5px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .testimonial-item span {
     font-size: 0.9em;
     color: rgba(255,255,255,0.7);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .testimonial-navigation {
     margin-top: 30px;
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha os pontos do carrossel horizontalmente */
-    display: flex;
+    display: flex; /* Alinha os pontos do carrossel horizontalmente */
     justify-content: center;
     align-items: center;
 }
@@ -592,10 +662,11 @@ h2 {
 }
 
 .blog-grid {
-    /* UTILIZAÇÃO DE GRID: Layout em grade para os posts do blog */
-    display: grid;
+    display: grid; /* Usa Grid para o layout dos posts do blog */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .blog-post {
@@ -625,27 +696,34 @@ h2 {
     font-size: 1.4em;
     margin-bottom: 10px;
     color: var(--secondary-blue);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .blog-post .post-meta {
     font-size: 0.85em;
     color: #888;
     margin-bottom: 15px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .blog-post p {
     font-size: 0.95em;
     color: #555;
     margin-bottom: 20px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .blog-post .read-more {
     font-weight: 600;
     color: var(--primary-blue);
-    /* UTILIZAÇÃO DE FLEXBOX: Permite alinhar ícone e texto */
-    display: inline-flex;
+    display: inline-flex; /* Permite alinhar ícone e texto */
     align-items: center;
     gap: 8px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .blog-post .read-more:hover {
@@ -663,11 +741,12 @@ h2 {
 }
 
 .contact-grid {
-    /* UTILIZAÇÃO DE GRID: Layout em grade para o formulário e informações de contato */
     display: grid;
     grid-template-columns: 1.5fr 1fr; /* Coluna do formulário maior que a das infos */
     gap: 50px;
     align-items: flex-start; /* Alinha o topo dos itens do grid */
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .contact-form {
@@ -675,16 +754,22 @@ h2 {
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 20px var(--shadow-medium);
+    max-width: 100%;
+    overflow: hidden; /* Importante para que os inputs não "vazem" */
 }
 
 .contact-form h3 {
     font-size: 1.8em;
     margin-bottom: 30px;
     color: var(--primary-blue);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .form-group {
     margin-bottom: 20px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .form-group label {
@@ -692,6 +777,8 @@ h2 {
     margin-bottom: 8px;
     font-weight: 600;
     color: #444;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .form-group label .required {
@@ -702,7 +789,7 @@ h2 {
 .form-group input,
 .form-group textarea,
 .form-group select {
-    width: 100%;
+    width: 100%; /* Garante que os campos ocupem 100% da largura do seu pai */
     padding: 12px 15px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -711,6 +798,9 @@ h2 {
     color: var(--text-dark);
     background-color: var(--background-light);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Já está no reset global, mas reforçar é bom */
+    min-width: 0; /* Permite que o campo encolha, se necessário, evitando overflow */
+    word-break: break-all; /* Força quebra de palavras longas (ex: e-mails) */
 }
 
 .form-group input:focus,
@@ -731,12 +821,16 @@ h2 {
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 20px var(--shadow-medium);
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .contact-info-details h3 {
     font-size: 1.8em;
     margin-bottom: 30px;
     color: var(--accent-color); /* Título em destaque com cor de acento */
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .contact-info-details p {
@@ -744,6 +838,9 @@ h2 {
     font-size: 1.05em;
     line-height: 1.7;
     color: rgba(255,255,255,0.9);
+    word-break: break-word; /* Permite que o texto longo (ex: e-mail) quebre a linha */
+    overflow-wrap: break-word;
+    min-width: 0; /* Importante para quebra de texto em flex ou grid */
 }
 
 .contact-info-details p i {
@@ -754,6 +851,8 @@ h2 {
 
 .contact-info-details p a {
     color: var(--text-light);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .contact-info-details p a:hover {
@@ -765,10 +864,13 @@ h2 {
     border-radius: 8px;
     overflow: hidden; /* Esconde qualquer borda excedente do iframe */
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    max-width: 100%;
 }
 
 .map-container iframe {
     border-radius: 8px;
+    width: 100%; /* Garante que o iframe ocupe 100% da largura do contêiner */
+    height: 300px; /* Mantém a altura fixa, ou você pode usar 'aspect-ratio' */
 }
 
 /* --- Footer (Rodapé) --- */
@@ -780,32 +882,42 @@ h2 {
 }
 
 .footer .footer-grid {
-    /* UTILIZAÇÃO DE GRID: Layout em grade para as colunas do rodapé */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
     gap: 40px;
     margin-bottom: 40px;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .footer-col {
     padding: 10px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .footer-col.about-company img {
     max-height: 50px;
     margin-bottom: 20px;
+    max-width: 100%;
+    height: auto;
 }
 
 .footer-col h3 {
     font-size: 1.3em;
     margin-bottom: 25px;
     color: var(--accent-color);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .footer-col p {
     margin-bottom: 15px;
     line-height: 1.7;
     color: rgba(255,255,255,0.8);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
 }
 
 .footer-col ul li {
@@ -815,6 +927,8 @@ h2 {
 .footer-col ul li a {
     color: rgba(255,255,255,0.8);
     transition: color 0.3s ease;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .footer-col ul li a:hover {
@@ -823,8 +937,9 @@ h2 {
 
 .footer-col .social-icons {
     margin-top: 20px;
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha os ícones sociais horizontalmente */
     display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
 }
 
 .footer-col .social-icons a {
@@ -832,6 +947,7 @@ h2 {
     font-size: 1.5em;
     margin-right: 18px;
     opacity: 0.8;
+    flex-shrink: 0; /* Impede que cada ícone individual não cause overflow */
 }
 
 .footer-col .social-icons a:hover {
@@ -840,9 +956,10 @@ h2 {
 }
 
 .newsletter-form {
-    /* UTILIZAÇÃO DE FLEXBOX: Alinha input e botão */
-    display: flex;
+    display: flex; /* Alinha input e botão */
     margin-top: 20px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .newsletter-form input {
@@ -853,6 +970,7 @@ h2 {
     outline: none;
     background-color: rgba(255,255,255,0.9);
     color: var(--text-dark);
+    min-width: 0; /* Permite que o input encolha se necessário */
 }
 
 .newsletter-form input::placeholder {
@@ -867,6 +985,7 @@ h2 {
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Impede que o botão encolha, mas permite que o input ao lado o faça */
 }
 
 .newsletter-form button:hover {
@@ -901,4 +1020,558 @@ h2 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0; /* Oculto por padrão */
+    visibility: hidden; /* Esconde completamente até que precise aparecer */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-5px); /* Pequeno efeito de "levantar" ao aparecer */
+}
+
+.back-to-top:hover {
+    background-color: var(--secondary-blue);
+    transform: translateY(-8px);
+}
+
+/* --- Estilos para a Página de Artigo Individual (Adicionado para artigos de blog) --- */
+.article-page {
+    padding: 120px 0 80px; /* Padding superior para não colar no header fixo */
+    background-color: var(--background-light);
+}
+
+.article-page article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.article-cover-image {
+    width: 100%;
+    height: 350px; /* Altura fixa para a imagem de capa */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.article-title {
+    font-size: 2.5em;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    text-align: left; /* Título do artigo alinhado à esquerda */
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.article-meta {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.article-body h3 {
+    font-size: 1.8em;
+    color: var(--secondary-blue);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.article-body p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.article-body ul {
+    list-style: disc; /* Marcadores de lista */
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.article-body ul li {
+    margin-bottom: 8px;
+    color: #444;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.share-article {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border-color);
+    font-weight: 600;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.share-article .fab {
+    font-size: 1.5em;
+    color: var(--primary-blue);
+    transition: color 0.3s ease;
+    flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+.share-article .fab:hover {
+    color: var(--secondary-blue);
+}
+
+.back-to-blog {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.back-to-blog a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-to-blog a:hover {
+    background-color: var(--primary-blue);
+    color: #fff;
+}
+
+
+/* --- Responsividade (Media Queries) --- */
+
+/* Breakpoint para dispositivos maiores (tablets, laptops pequenos) - MANTÉM LAYOUT LADO A LADO */
+/* O layout lado a lado para Hero e About será mantido ATÉ 992px, depois empilha. */
+@media (min-width: 993px) {
+    .hero .container,
+    .about .container {
+        flex-direction: row; /* Força o layout lado a lado */
+        flex-wrap: nowrap; /* Impede quebra de linha */
+        justify-content: space-between; /* Espaça conteúdo e imagem */
+        text-align: left; /* Garante alinhamento de texto à esquerda */
+    }
+
+    .hero-content, .hero-image,
+    .about-content, .about-image {
+        min-width: auto; /* Reseta o min-width para flexibilidade */
+        flex-basis: auto; /* Reseta flex-basis para que flex: 1 funcione */
+        /* O flex: 1/1.5 no CSS padrão já vai fazer o trabalho */
+    }
+
+    /* As propriedades como padding-right, text-align left, etc. no CSS padrão já estão OK */
+}
+
+/* Breakpoint para tablets (769px a 992px) - Ainda tentando manter lado a lado, mais compacto */
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Hero Section - Mantém o layout lado a lado, mas mais compacto */
+    .hero .container {
+        gap: 20px; /* Reduz um pouco o gap */
+    }
+    .hero-content {
+        min-width: 300px; /* Permite um encolhimento maior */
+        padding-right: 15px;
+        flex-basis: 55%; /* Dá mais espaço para o texto */
+    }
+    .hero-image {
+        min-width: 280px; /* Permite um encolhimento maior */
+        flex-basis: 40%; /* Dá menos espaço para a imagem */
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1.05em;
+    }
+    .hero-buttons {
+        justify-content: flex-start; /* Mantém à esquerda */
+    }
+
+    /* About Section - Mantém o layout lado a lado, mas mais compacto */
+    .about .container {
+        gap: 30px; /* Reduz um pouco o gap */
+    }
+    .about-image {
+        min-width: 250px;
+        flex-basis: 40%;
+    }
+    .about-content {
+        min-width: 300px;
+        flex-basis: 55%;
+    }
+    .about-content h2 {
+        font-size: 2.2em;
+        text-align: left; /* Mantém alinhamento à esquerda */
+    }
+    .about-content h2::after {
+        left: 0; /* Mantém a linha à esquerda */
+        transform: translateX(0);
+    }
+    .about-content ul {
+        text-align: left; /* Mantém lista alinhada à esquerda */
+        padding-left: 0;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr; /* Colunas empilhadas em tablets menores */
+        gap: 30px;
+    }
+    .contact-form, .contact-info-details {
+        padding: 30px;
+    }
+    .map-container iframe {
+        height: 250px;
+    }
+}
+
+
+/* Breakpoint para dispositivos menores (smartphones, empilha tudo) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .topbar {
+        display: none;
+    }
+    .header {
+        padding: 15px 0;
+    }
+    .header .logo img {
+        height: 50px;
+    }
+
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--background-light);
+        box-shadow: 0 10px 20px var(--shadow-medium);
+        padding: 20px 0;
+        z-index: 990;
+        border-top: 3px solid var(--primary-blue);
+        max-height: 80vh;
+        overflow-y: auto;
+        gap: 0;
+        flex-wrap: nowrap;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .navbar .nav-links li a:not(.btn-primary) {
+        padding: 15px 0;
+        display: block;
+        color: var(--text-dark);
+        border-bottom: 1px solid var(--background-grey);
+        white-space: normal;
+        word-break: break-word;
+    }
+     .navbar .nav-links li:last-child a:not(.btn-primary) {
+         border-bottom: none;
+    }
+
+    .navbar .nav-links li a:not(.btn-primary):hover {
+        background-color: var(--background-grey);
+        color: var(--primary-blue);
+    }
+    .navbar .nav-links li a:not(.btn-primary)::after {
+        display: none;
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border-top: none;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    .dropdown.active .dropdown-content {
+        max-height: 200px;
+        border-top: 1px solid var(--background-grey);
+    }
+
+    .dropdown-content a {
+        padding-left: 50px !important;
+        background-color: var(--background-light);
+        border-bottom: 1px solid var(--background-grey);
+    }
+    .dropdown-content a:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown-content a:hover {
+        background-color: var(--background-grey);
+        color: var(--primary-blue) !important;
+        padding-left: 55px !important;
+    }
+
+    .dropdown .fas.fa-chevron-down {
+        transform: rotate(0deg);
+        transition: transform 0.3s ease;
+    }
+    .dropdown.active .fas.fa-chevron-down {
+        transform: rotate(180deg);
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .mobile-btn-wrapper {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        border-top: 1px solid var(--background-grey);
+    }
+
+    .mobile-btn {
+        width: calc(100% - 40px);
+        margin: 0 20px;
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+
+    /* Hero Section - Empilha a partir de 768px para baixo */
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content, .hero-image {
+        padding-right: 0;
+        min-width: unset;
+        width: 100%;
+    }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1.0em;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
+        flex: 1 1 auto;
+        min-width: unset;
+        width: calc(100% - 40px);
+        margin: 0 20px;
+    }
+
+    /* About Section - Empilha a partir de 768px para baixo */
+    .about .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+    .about-content h2 {
+        text-align: center;
+    }
+    .about-content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .about-content ul {
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .contact-form .form-group input,
+    .contact-form .form-group textarea,
+    .contact-form .form-group select {
+        padding: 10px 12px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .contact-info-details p {
+        font-size: 1em;
+    }
+
+    .footer .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-col h3 {
+        text-align: center;
+    }
+    .footer-col ul {
+        text-align: center;
+    }
+    .footer-col .social-icons {
+        justify-content: center;
+        display: flex;
+    }
+    .newsletter-form {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .newsletter-form input {
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .newsletter-form button {
+        border-radius: 5px;
+        width: 100%;
+    }
+}
+
+/* Telas muito pequenas (smartphones verticais) */
+@media (max-width: 575px) {
+    .header .logo img {
+        height: 45px;
+    }
+
+    .hero {
+        padding: 60px 0;
+        min-height: 400px;
+    }
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+    .hero-content p {
+        font-size: 0.85em;
+    }
+    .btn-primary, .btn-secondary {
+        font-size: 0.85em;
+        padding: 8px 15px;
+    }
+    .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
+        width: calc(100% - 30px);
+        margin: 0 15px;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+    .section-description {
+        font-size: 0.8em;
+        margin-bottom: 25px;
+    }
+
+    .about-content h2 {
+        font-size: 1.4em;
+    }
+    .about-content p, .about-content ul li {
+        font-size: 0.82em;
+    }
+
+    .service-item h3 {
+        font-size: 1.1em;
+    }
+    .service-item p {
+        font-size: 0.8em;
+    }
+
+    .testimonial-item p {
+        font-size: 0.9em;
+    }
+    .testimonial-item h4 {
+        font-size: 0.85em;
+    }
+
+    .blog-post h3 {
+        font-size: 1em;
+    }
+    .blog-post p {
+        font-size: 0.8em;
+    }
+
+    .contact-form h3, .contact-info-details h3 {
+        font-size: 1.1em;
+    }
+    .contact-info-details p {
+        font-size: 0.8em;
+    }
+    .map-container iframe {
+        height: 150px;
+    }
+
+    /* Estilos para a Página de Artigo Individual (mobile muito pequeno) */
+    .article-page {
+        padding: 40px 0 20px;
+    }
+    .article-page article {
+        padding: 8px;
+        margin: 0 5px;
+    }
+    .article-cover-image {
+        height: 120px;
+    }
+    .article-title {
+        font-size: 1.4em;
+    }
+    .article-body h3 {
+        font-size: 1.1em;
+    }
+    .article-body p, .article-body ul li {
+        font-size: 0.85em;
+    }
 }
