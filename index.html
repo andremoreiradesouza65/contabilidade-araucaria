@@ -1,219 +1,386 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Araucária Contabilidade</title>
+    <title>Araucária Contabilidade - Sua Solução Contábil Completa</title>
+
+    <!-- Meta Tags para SEO e Compartilhamento (MUITO IMPORTANTE PARA VISIBILIDADE) -->
+    <meta name="description" content="Araucária Contabilidade: Expertise em contabilidade, fiscal, pessoal e consultoria para o sucesso da sua empresa em Guarapuava e região.">
+    <meta name="keywords" content="contabilidade, Guarapuava, Paraná, escritório contábil, consultoria, fiscal, pessoal, abertura de empresas, imposto de renda, MEI, ME, EPP, gestão financeira">
+    <meta name="author" content="Araucária Contabilidade">
+
+    <!-- Open Graph Meta Tags para Redes Sociais (Melhora o compartilhamento em plataformas como Facebook e WhatsApp) -->
+    <meta property="og:title" content="Araucária Contabilidade - Sua Solução Contábil Completa">
+    <meta property="og:description" content="Expertise em contabilidade, fiscal, pessoal e consultoria para o sucesso da sua empresa em Guarapuava e região.">
+    <!-- Substitua pela URL da sua imagem de capa para compartilhamento. Recomenda-se 1200x630px -->
+    <meta property="og:image" content="images/og-image.jpg"> <!-- Caminho local para sua imagem OG -->
+    <!-- Substitua pela URL real do seu GitHub Pages após a publicação -->
+    <meta property="og:url" content="https://seuperfilgithub.github.io/araucaria-contabilidade/">
+    <meta property="og:type" content="website">
+
+    <!-- Ícone da Aba do Navegador (Favicon) -->
+    <!-- Substitua pela sua própria imagem de favicon (ex: um ícone com as letras "AC") -->
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+    <!-- Folha de Estilos CSS Principal -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Ícones (Biblioteca popular de ícones escaláveis) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- Meta SEO -->
-    <meta name="description" content="Contabilidade personalizada em Guarapuava. Soluções completas para empresas.">
-    <meta property="og:title" content="Araucária Contabilidade">
-    <meta property="og:description" content="Transformamos sua gestão contábil em resultados excepcionais.">
-    <meta property="og:image" content="LOGO3-removebg-preview.png">
-
-    <!-- Animações e SEO Boost -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6J3Q8S2SMJ">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6J3Q8S2SMJ');
-</script>
-
+    <!-- Google Fonts (Fontes selecionadas para um visual profissional) -->
+    <!-- Poppins para o corpo do texto e Montserrat para títulos -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
-<script>
-function toggleMenu() {
-  const menu = document.querySelector('header ul.menu');
-  menu.classList.toggle('show');
-}
-</script>
-
 <body>
 
-    <!-- Header Section -->
-   <header>
-  <nav>
-    <div class="logo">
-      <img src="LOGO3-removebg-preview.png" alt="Logo Araucária">
-    </div>
-
-    <!-- Botão hambúrguer para mobile -->
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <!-- Menu de navegação -->
-    <ul class="menu">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#noticias">Notícias</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
-</header>
-
-
-
-    <!-- Home Section -->
-    <div class="swiper hero-swiper">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide hero" style="background-image: url('araucaria.jpg');">
-            <div class="hero-content">
-              <h2>Transformamos sua gestão contábil<br>em resultados excepcionais</h2>
-              <p>Contabilidade de excelência para o crescimento da sua empresa.</p>
-              <a href="https://wa.me/554233042898" class="cta-btn">Fale Conosco</a>
+    <!-- Barra Superior de Contato (Informações rápidas e redes sociais) -->
+    <div class="topbar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone-alt"></i> (42) 3304-2898</span>
+                <span><i class="fas fa-envelope"></i> araucariacontabilidade@hotmail.com</span>
+                <span><i class="fas fa-map-marker-alt"></i> R. Mal. Floriano Peixoto, 1811 - Centro, Guarapuava - PR, 85010-250</span>
             </div>
-          </div>
-      
-          <!-- Slide 2 -->
-          <div class="swiper-slide hero" style="background-image: url('sala.jpeg');">
-            <div class="hero-content">
-              <h2>Consultoria especializada<br>em contabilidade empresarial</h2>
-              <p>Conte com nossa equipe para manter sua empresa em conformidade e prosperando.</p>
-              <a href="https://wa.me/554233042898" class="cta-btn">Saiba Mais</a>
+            <div class="social-icons">
+                <!-- Substitua os 'href' pelos links reais das suas redes sociais -->
+                <a href="https://www.facebook.com/araucariacontabilidad/?locale=pt_BR" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/contabilidadearaucaria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/araucariacontabilidade" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/554233042898" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
-          </div>
-
-           <div class="swiper-slide hero" style="background-image: url('44.jpg');">
-            <div class="hero-content">
-              <h2>Transformamos sua gestão contábil<br>em resultados excepcionais</h2>
-              <p>Contabilidade de excelência para o crescimento da sua empresa.</p>
-              <a href="https://wa.me/554233042898" class="cta-btn">Fale Conosco</a>
-            </div>
-          </div>
-           
-          <div class="swiper-slide hero" style="background-image: url('principal.jpeg');">
-            <div class="hero-content">
-              <h2>Transformamos sua gestão contábil<br>em resultados excepcionais</h2>
-              <p>Contabilidade de excelência para o crescimento da sua empresa.</p>
-              <a href="https://wa.me/554233042898" class="cta-btn">Fale Conosco</a>
-            </div>
-
         </div>
-      </div>
-      
+    </div>
 
-    <!-- Sobre Nós Section -->
-    <section id="sobre" class="sobre" data-aos="fade-right">
-        <h2>Sobre Nós</h2>
-        <p>Na Araucária Contabilidade, construímos mais do que soluções contábeis; criamos parcerias baseadas em confiança, respeito e excelência. Situados no coração de Guarapuava, somos uma equipe de profissionais apaixonados pela arte de transformar desafios financeiros em oportunidades para nossos clientes. Com 12 anos de experiência no mercado, unimos conhecimento técnico com um atendimento personalizado, adaptando nossas soluções às necessidades únicas de cada cliente...</p>
-    </section>
+    <!-- Cabeçalho Principal e Navegação (Logo, Menu e Botão de Ação) -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <!-- Caminho local para seu logo principal (ex: em 'images/logo-preta.png') -->
+                    <img src="logo preta.png" alt="Araucária Contabilidade Logo">
+                </a>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#hero" class="active">Início</a></li>
+                    <li><a href="#about">Sobre Nós</a></li>
+                    <li class="dropdown">
+                        <a href="#services">Serviços <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <!-- Links internos para seções de serviços específicas -->
+                            <a href="#services-contabilidade">Contabilidade Geral</a>
+                            <a href="#services-fiscal">Fiscal e Tributária</a>
+                            <a href="#services-pessoal">Departamento Pessoal</a>
+                            <a href="#services-abertura">Abertura de Empresas</a>
+                            <a href="#services-consultoria">Consultoria e Planejamento</a>
+                            <a href="#services-mei">Atendimento MEI</a>
+                        </div>
+                    </li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
+                    <li><a href="#blog">Notícias</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    <!-- Botão "Solicitar Orçamento" apenas para desktop (oculto em mobile) -->
+                    <li class="mobile-btn-wrapper desktop-only"><a href="#contact" class="btn-primary desktop-btn">Solicitar Orçamento</a></li>
+                </ul>
+                <!-- Botão "Solicitar Orçamento" apenas para desktop (visível no header) -->
+                <a href="#contact" class="btn-primary desktop-btn external-btn">Solicitar Orçamento</a>
+                <!-- Ícone do Menu Hambúrguer (para mobile) -->
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <!-- Services Section -->
-    <section id="services" class="services" data-aos="fade-left">
-        <h2>Serviços</h2>
-        <div class="service-items">
-            <div class="service-item">
-                <h3><i class="fas fa-chart-line"></i> Assessoria Contábil</h3>
-                <p>Gerenciamos todas as suas obrigações contábeis...</p>
+    <!-- Seção Principal (Hero Section) - Destaque inicial do site -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sua Contabilidade com Segurança, Inovação e Resultados.</h1>
+                <p>A Araucária Contabilidade oferece soluções contábeis completas para impulsionar o crescimento do seu negócio em Guarapuava e região.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary">Nossos Serviços</a>
+                    <a href="#contact" class="btn-secondary">Fale Conosco</a>
+                </div>
             </div>
-            <div class="service-item">
-                <h3><i class="fas fa-calculator"></i> Planejamento Tributário</h3>
-                <p>Identificamos estratégias eficazes...</p>
-            </div>
-            <div class="service-item">
-                <h3><i class="fas fa-user-tie"></i> Departamento Pessoal</h3>
-                <p>Cuidamos de todas as rotinas...</p>
-            </div>
-            <div class="service-item">
-                <h3><i class="fas fa-building"></i> Regularização de Empresas</h3>
-                <p>Oferecemos suporte completo...</p>
-            </div>
-            <div class="service-item">
-                <h3><i class="fas fa-file-invoice"></i> Escrituração Fiscal</h3>
-                <p>Realizamos a escrituração de seus documentos fiscais...</p>
+            <div class="hero-image">
+                <!-- Imagem ilustrativa que transmita profissionalismo e modernidade -->
+                <!-- Substitua 'images/principal.jpeg' pela sua imagem real para esta seção -->
+                <img src="principal.jpeg" alt="Profissionais de contabilidade trabalhando em um escritório moderno.">
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <div class="container" id="contact" data-aos="fade-up">
-        <h1>Entre em contato via E-mail</h1>
-        <form id="contact-form" target="_blank" action="https://formsubmit.co/ andremoreiradesouza557@gmail.com" method="POST">
-            <input type="text" name="name" placeholder="Nome Completo" required>
-            <input type="email" name="email" id="email" placeholder="E-mail" required>
-            <textarea name="message" id="message" placeholder="Sua Mensagem" rows="5" required></textarea>
-            <button type="submit">Enviar Mensagem</button>
-        </form>
-    </div>
+    <!-- Seção Sobre Nós (Apresenta a empresa e seus diferenciais) -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-image">
+                <!-- Imagem da equipe ou do escritório para humanizar a marca -->
+                <!-- Substitua 'images/sala.jpeg' pela sua imagem real para esta seção -->
+                <img src="sala.jpeg" alt="Equipe da Araucária Contabilidade em reunião.">
+            </div>
+            <div class="about-content">
+                <h2>Sobre a Araucária Contabilidade</h2>
+                <p>Na Araucária Contabilidade, construímos mais do que soluções contábeis; criamos parcerias baseadas em confiança, respeito e excelência. Situados no coração de Guarapuava, somos uma equipe de profissionais apaixonados pela arte de transformar desafios financeiros em oportunidades para nossos clientes. Com 12 anos de experiência no mercado, unimos conhecimento técnico com um atendimento personalizado, adaptando nossas soluções às necessidades únicas de cada cliente.</p>
+                <p>Somos uma equipe dedicada e qualificada, focada em fornecer um atendimento de excelência, transparência e agilidade, garantindo a conformidade fiscal e legal do seu negócio, e contribuindo para o seu sucesso.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Expertise e tradição no mercado.</li>
+                    <li><i class="fas fa-check-circle"></i> Atendimento personalizado e consultivo.</li>
+                    <li><i class="fas fa-check-circle"></i> Inovação e tecnologia a serviço da sua empresa.</li>
+                    <li><i class="fas fa-check-circle"></i> Foco em resultados e otimização fiscal.</li>
+                </ul>
+                <a href="#contact" class="btn-secondary">Agende uma Consulta</a>
+            </div>
+        </div>
+    </section>
 
-   
+    <!-- Seção de Serviços (Lista detalhada dos serviços oferecidos) -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Nossos Serviços Contábeis</h2>
+            <p class="section-description">Oferecemos um portfólio completo de serviços para atender todas as necessidades da sua empresa, do MEI à grande corporação.</p>
 
-    <!-- Notícias Recentes Section -->
-   <section id="noticias" class="noticias" style="background-color: #003a86; padding: 40px 20px;" data-aos="fade-up">
-  <h2 style="color: white; margin-bottom: 30px;">Notícias Recentes</h2>
-  <div class="noticias-container">
-    <!-- Notícias vão ser inseridas aqui via JS -->
-  </div>
-</section>
+            <div class="services-grid">
+                <div class="service-item" id="services-contabilidade">
+                    <i class="fas fa-book"></i>
+                    <h3>Contabilidade Geral</h3>
+                    <p>Registro de todas as movimentações financeiras e patrimoniais, elaboração de balancetes, balanços e demonstrações financeiras.</p>
+                </div>
+                <div class="service-item" id="services-fiscal">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Fiscal e Tributária</h3>
+                    <p>Apuração de impostos, emissão de guias, declarações (SPED, DCTF, etc.), e consultoria para otimização da carga tributária.</p>
+                </div>
+                <div class="service-item" id="services-pessoal">
+                    <i class="fas fa-users"></i>
+                    <h3>Departamento Pessoal</h3>
+                    <p>Admissões, demissões, folha de pagamento, cálculo de férias, 13º salário, obrigações trabalhistas e previdenciárias.</p>
+                </div>
+                <div class="service-item" id="services-abertura">
+                    <i class="fas fa-building"></i>
+                    <h3>Abertura e Regularização de Empresas</h3>
+                    <p>Orientação completa para a escolha do melhor regime tributário, registro e legalização do seu negócio.</p>
+                </div>
+                <div class="service-item" id="services-consultoria">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Consultoria e Planejamento</h3>
+                    <p>Assessoria estratégica para gestão financeira, viabilidade de projetos, fusões, aquisições e planejamento sucessório.</p>
+                </div>
+                <div class="service-item" id="services-mei">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Atendimento MEI</h3>
+                    <p>Suporte completo para Microempreendedores Individuais: abertura, DAS, declaração anual e regularização.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Seção de Depoimentos (Carrossel de depoimentos, controlado por JavaScript) -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>O Que Nossos Clientes Dizem</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-item active">
+                    <p>"Ótimo atendimento, rápido e profissional. Me atendem a anos. E o Marco tem uma paciência pra explicar e orientação que merece um muito obrigado!"</p>
+                    <h4>Samuel Honorio</h4>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Excelente empresa, sou cliente há muitos anos e nunca me deixaram na mão. Sempre com atendimento nota 10."</p>
+                    <h4>Tiago Clickinfo</h4>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Excelente atendimento, profissionais de alta qualidade com profissionalismo ímpar."</p>
+                    <h4>Emanuel Prestes</h4>
+                </div>
+                <div class="testimonial-navigation">
+                    <!-- Pontos para navegação manual no carrossel -->
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 Araucária Contabilidade. Todos os direitos reservados.</p>
+    <!-- Seção de Notícias/Blog (Artigos e novidades do setor) -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2>Últimas Notícias e Artigos</h2>
+            <p class="section-description">Fique por dentro das novidades do mundo contábil, fiscal e empresarial.</p>
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <!-- Imagem para o artigo. Substitua 'images/reforma-tributaria-blog.jpg' pela sua imagem real. -->
+                    <div class="blog-post-content">
+                        <h3>Impactos da Reforma Tributária nas Pequenas Empresas</h3>
+                        <p class="post-meta">Por: Equipe AC | 10 de Junho de 2025</p>
+                        <p>Entenda as principais mudanças e como elas podem afetar o seu negócio...</p>
+                        <!-- LINK ATUALIZADO para a página do artigo -->
+                        <a href="https://www.contabeis.com.br/artigos/71299/reforma-tributaria-impacto-profundo-em-empresas-e-setor-de-servicos/" class="read-more">Leia Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-post">
+                    <!-- Imagem para o artigo. Substitua 'images/guia-mei-blog.jpg' pela sua imagem real. -->
+                    <div class="blog-post-content">
+                        <h3>Guia Completo para o MEI: Obrigações e Benefícios</h3>
+                        <p class="post-meta">Por: Equipe AC | 05 de Junho de 2025</p>
+                        <p>Tudo o que você precisa saber para manter seu MEI regularizado e aproveitar as vantagens...</p>
+                        <!-- LINK ATUALIZADO para a página do artigo -->
+                        <a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/direitos-e-obrigacoes" class="read-more">Leia Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-post">
+                    <!-- Imagem para o artigo. Substitua 'images/planejamento-financeiro-blog.jpg' pela sua imagem real. -->
+                    <div class="blog-post-content">
+                        <h3>Planejamento Financeiro Empresarial: Dicas Essenciais</h3>
+                        <p class="post-meta">Por: Equipe AC | 28 de Maio de 2025</p>
+                        <p>Saiba como organizar as finanças da sua empresa para garantir um futuro sólido...</p>
+                        <!-- LINK ATUALIZADO para a página do artigo -->
+                        <a href="https://sebrae.com.br/sites/portalsebrae/artigos/planejamento-estrategico-o-que-e-e-como-fazer-para-sua-empresa,eb17af9d324bb810vgnvcm1000001b00320arcrd?utm_source=google_search&utm_medium=search&utm_campaign=art_sbrae_2025_awgs&editoria=google_search&utm_term=texto-art&utm_content=art_sbrae_2025_awgs0112&gad_source=1&gad_campaignid=22433208706&gbraid=0AAAAAot65HxAfKhlaXgeZes1t2gsnS-eS&gclid=Cj0KCQjwjdTCBhCLARIsAEu8bpKBMFlpAyG-W_Qp5UGJ2OA6kbmeakpOLR6dMR_b6pksdXF3GjPjEmkaAvFsEALw_wcB" class="read-more">Leia Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center">
+                <!-- Este link "Ver Todas as Notícias" ainda aponta para #. Você pode criar uma página 'blog.html' ou 'noticias.html' aqui. -->
+                <a href="https://www.jornalcontabil.com.br/" class="btn-primary">Ver Todas as Notícias</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Contato (Formulário e informações de contato detalhadas) -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <p class="section-description">Preencha o formulário abaixo ou utilize nossos contatos diretos para falar com nossa equipe.</p>
+
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3>Envie sua Mensagem</h3>
+                    <!--
+                        IMPORTANTE: Para o formulário funcionar, você precisará de um serviço de backend.
+                        Uma opção GRATUITA e simples para GitHub Pages é o Formspree (formspree.io).
+                        1. Crie uma conta no Formspree.
+                        2. Crie um novo formulário e copie o ID do formulário.
+                        3. Substitua "your_form_id" no 'action' abaixo pelo ID do seu formulário.
+                        Ex: <form action="https://formspree.io/f/xyzaasdf" method="POST">
+                    -->
+                    <form action="https://formspree.io/f/xzzgavgk" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nome Completo <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(42) 99999-9999">
+                        </div>
+                         <div class="form-group">
+                            <label for="service-interest">Assunto / Serviço de Interesse</label>
+                            <select id="service-interest" name="service_interest">
+                                <option value="">Selecione um serviço</option>
+                                <option value="contabilidade-geral">Contabilidade Geral</option>
+                                <option value="fiscal-tributaria">Fiscal e Tributária</option>
+                                <option value="departamento-pessoal">Departamento Pessoal</option>
+                                <option value="abertura-empresas">Abertura de Empresas</option>
+                                <option value="consultoria">Consultoria e Planejamento</option>
+                                <option value="mei">Atendimento MEI</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Descreva sua necessidade ou dúvida"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+                <div class="contact-info-details">
+                    <h3>Nosso Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Marechal Floriano Peixoto, 1811 - Centro<br>Guarapuava - PR, 85010-250</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+554233042898">(42) 3304-2898</a></p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/554233042898" target="_blank">(42) 3304-2898</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:araucariacontabilidade@hotmail.com">contato@araucariacontabilidade.com.br</a></p>
+
+                    <h3>Horário de Atendimento</h3>
+                    <p><i class="far fa-clock"></i> Segunda a Sexta: 08:30 - 11:00 | 13:00 - 18:00</p>
+
+                    <h3>Localização</h3>
+                    <div class="map-container">
+                        <!--
+                            Para incorporar o Google Maps:
+                            1. Vá em Google Maps, procure o endereço da Araucária Contabilidade.
+                            2. Clique em "Compartilhar", depois "Incorporar um mapa".
+                            3. Copie o código <iframe> e cole-o aqui, substituindo o atual.
+                        -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.387111557325!2d-51.47103022534467!3d-25.391849531381993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ef37529e055621%3A0x630369f8b6d5fb31!2sArauc%C3%A1ria%20Contabilidade!5e0!3m2!1spt-BR!2sbr!4v1750277068369!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé (Informações da empresa, links úteis e newsletter) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-company">
+                    <!-- Logo branco para contrastar com o fundo azul escuro do rodapé -->
+                    <!-- Substitua 'images/logo-white.png' pela sua imagem real do logo branco -->
+                    <img src="LOGO3-removebg-preview.png" alt="Araucária Contabilidade Logo Branco">
+                    <p>Desde 2012, a Araucária Contabilidade oferece excelência e confiança em serviços contábeis, fiscais e de RH para o sucesso do seu negócio.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/araucariacontabilidade" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/contabilidadearaucaria" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/araucariacontabilidade" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/554233042898" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="#services-contabilidade">Contabilidade Geral</a></li>
+                        <li><a href="#services-fiscal">Fiscal e Tributária</a></li>
+                        <li><a href="#services-pessoal">Departamento Pessoal</a></li>
+                        <li><a href="#services-abertura">Abertura de Empresas</a></li>
+                        <li><a href="#services-consultoria">Consultoria</a></li>
+                        <li><a href="#services-mei">Atendimento MEI</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#about">Quem Somos</a></li>
+                        <li><a href="#blog">Notícias</a></li>
+                        <li><a href="#testimonials">Depoimentos</a></li>
+                        <li><a href="#contact">Fale Conosco</a></li>
+                        <!-- Adicione links para Política de Privacidade e Termos de Uso REAIS -->
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Receba as últimas novidades e dicas contábeis diretamente em seu e-mail.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <button type="submit" aria-label="Assinar Newsletter"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Araucária Contabilidade. Todos os direitos reservados.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Botpress Chatbot -->
-    <script src="https://webhook.botpress.cloud/89578b12-2e06-4a8c-9b96-5681a6fb9f71" data-bot-id="SEU_BOT_ID" data-host="https://cdn.botpress.cloud/webchat/v1" async></script>
+    <!-- Botão Voltar ao Topo (Controlado por JavaScript) -->
+    <a href="#" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-chevron-up"></i></a>
 
-    <!-- Rolagem suave -->
-    <script>
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth"
-          });
-        });
-      });
-    </script>
-
- <!-- AOS Init -->
-<script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  </script>
-  
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  
-  <script>
-    const swiper = new Swiper('.hero-swiper', {
-      loop: true,
-      autoplay: {
-        delay: 4000,  // Tempo entre as imagens (4 segundos)
-        disableOnInteraction: false,
-      },
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true,
-      },
-      speed: 1500,  // Aumento do tempo de transição para 1,5 segundos, para um esmaecimento mais suave
-    });
-  </script>
-  
-  
+    <!-- Script JavaScript Principal -->
+    <script src="script.js"></script>
 </body>
 </html>
